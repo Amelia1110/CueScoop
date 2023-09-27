@@ -3,7 +3,7 @@ import { Card, Col, FloatButton, Row } from "antd";
 
 export default function Dashboard() {
     return (
-        <Row>
+        <Row className="h-screen">
             <FloatButton.Group 
                 icon={<UserOutlined />} 
                 trigger="hover" 
@@ -14,9 +14,8 @@ export default function Dashboard() {
                 <FloatButton/>
             </FloatButton.Group>
             <Col span={14}>
-                
             </Col>
-            <Col span={10} className="p-10">
+            <Col span={10} className="p-10 h-full overflow-auto">
                 <Row gutter={[0, 10]}>
                     <Col span={24}>
                         <Card title="hello" className="shadow-md">
