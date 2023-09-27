@@ -1,4 +1,4 @@
-import { UserOutlined } from "@ant-design/icons";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Card, Col, FloatButton, Row } from "antd";
 
 export default function Dashboard() {
@@ -9,7 +9,7 @@ export default function Dashboard() {
                 trigger="hover" 
                 style={{ left: 30}} 
             >
-                <FloatButton/>
+                <FloatButton icon={<LogoutOutlined />}/>
                 <FloatButton/>
                 <FloatButton/>
             </FloatButton.Group>
