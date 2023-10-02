@@ -24,7 +24,7 @@ export default function Dashboard() {
             </FloatButton.Group> 
             <Col span={13} className="grid place-content-center">
                 <Image 
-                    src={`${prefix}${route}/choco_icecream.png`}
+                    src={`${prefix}/${route}/choco_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
