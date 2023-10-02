@@ -6,7 +6,8 @@ export default function Dashboard() {
     const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     var route = ""; // Remove later
 
-    if (prefix == "https://amelia1110.github.io/") {
+    // Remove later
+    if (prefix == "https://amelia1110.github.io") {
         route = "CueScoop";
     }
 
