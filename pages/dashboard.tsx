@@ -8,7 +8,7 @@ export default function Dashboard() {
             <FloatButton.Group 
                 icon={<UserOutlined />} 
                 trigger="hover" 
-                style={{ left: 30}} 
+                style={{ left: 30}}  
             >
                 <FloatButton icon={<LogoutOutlined />}/>
                 <FloatButton/>
