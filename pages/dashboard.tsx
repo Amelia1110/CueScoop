@@ -3,6 +3,8 @@ import { Card, Col, FloatButton, Row } from "antd";
 import Image from "next/image";
 
 export default function Dashboard() {
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
     return (
         <Row className="h-screen"> 
             <FloatButton.Group 
@@ -16,7 +18,7 @@ export default function Dashboard() {
             </FloatButton.Group> 
             <Col span={13} className="grid place-content-center">
                 <Image 
-                    src="/CueScoop/choco_icecream.png" 
+                    src={`${prefix}/choco_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
