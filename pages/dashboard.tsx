@@ -1,8 +1,8 @@
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Card, Col, FloatButton, Row } from "antd";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
     const [cardsOpen, setCardsOpen] = useState(true);
@@ -24,6 +24,9 @@ export default function Dashboard() {
   </AnimatePresence>
 )
     */
+   useEffect(() => {
+    console.log(cardsOpen);
+   }, [cardsOpen])
 
     return (
         <Row className="h-screen"> 
@@ -36,18 +39,30 @@ export default function Dashboard() {
                 <FloatButton/>
                 <FloatButton/> 
             </FloatButton.Group> 
-            <Col span={13} className="grid place-content-center">
+            <AnimatePresence>
+            <motion.div
+                initial={{ width: "55.166666%" }} // Initial position
+                animate={cardsOpen ? { width: "55.166666%" }: {width: "100%" }} // Animation when component is present
+                transition={{ duration: 0.5 }} // Animation duration
+                className="grid place-content-center"
+            >
                 <Image 
                     src={`/strawberry_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
                 />
-                <Button onClick={() => setCardsOpen(!cardsOpen)}>Start Studying (temp button)</Button>
-            </Col>
-            <Col span={11} className="p-10 pl-0 h-full overflow-auto">
-
-                <AnimatePresence>
+                <Button onClick={() => setCardsOpen(!cardsOpen)}>Start Studying (temp button) &gt;</Button>
+            </motion.div>
+            {cardsOpen && (
+            <motion.div
+                key="cards"
+                initial={{ x: "100%" }} // Initial position
+                animate={{ x: "0%" }} // Animation when component is present
+                exit={{ x: "100%" }} // Slide out to the right
+                transition={{ duration: 0.5 }} // Animation duration
+                className="p-10 pl-0 h-full overflow-auto w-11/24"
+            >
                 <Row gutter={[0, 10]}>
                     <Col span={24}>
                         <Card title="hello" className="shadow-md">
@@ -80,8 +95,9 @@ export default function Dashboard() {
                         </Card>
                     </Col>
                 </Row>
-                </AnimatePresence>
-            </Col>
+            </motion.div>
+            )}
+        </AnimatePresence>
         </Row>
     )
 }
