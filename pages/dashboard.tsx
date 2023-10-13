@@ -29,7 +29,7 @@ export default function Dashboard() {
    }, [cardsOpen])
 
     return (
-        <Row className="h-screen"> 
+        <Row className="h-screen w-screen"> 
             <FloatButton.Group 
                 icon={<UserOutlined />} 
                 trigger="hover" 
@@ -39,28 +39,27 @@ export default function Dashboard() {
                 <FloatButton/>
                 <FloatButton/> 
             </FloatButton.Group> 
-            <AnimatePresence>
-            <motion.div
-                initial={{ width: "55.166666%" }} // Initial position
-                animate={cardsOpen ? { width: "55.166666%" }: {width: "100%" }} // Animation when component is present
-                transition={{ duration: 0.5 }} // Animation duration
-                className="grid place-content-center"
-            >
+            <motion.div 
+                initial={{ x: "100%" }} // Initial position
+                animate={cardsOpen ? { x: "0%" } : {x: "41.66666%"}} // Animation when component is present
+                transition={{ duration: 0.4 }} // Animation duration
+                className="grid place-content-center w-13/24">
                 <Image 
-                    src={`/strawberry_icecream.png`}
+                    src={`/CueScoop/strawberry_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
                 />
                 <Button onClick={() => setCardsOpen(!cardsOpen)}>Start Studying (temp button) &gt;</Button>
             </motion.div>
+            <AnimatePresence>
             {cardsOpen && (
             <motion.div
                 key="cards"
                 initial={{ x: "100%" }} // Initial position
                 animate={{ x: "0%" }} // Animation when component is present
                 exit={{ x: "100%" }} // Slide out to the right
-                transition={{ duration: 0.5 }} // Animation duration
+                transition={{ duration: 0.4 }} // Animation duration
                 className="p-10 pl-0 h-full overflow-auto w-11/24"
             >
                 <Row gutter={[0, 10]}>
