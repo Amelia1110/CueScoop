@@ -1,4 +1,4 @@
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, GlobalOutlined, LockFilled, LogoutOutlined, PlusOutlined, RightOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Card, Col, FloatButton, Row } from "antd";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -60,37 +60,142 @@ export default function Dashboard() {
                 animate={{ x: "0%" }} // Animation when component is present
                 exit={{ x: "100%" }} // Slide out to the right
                 transition={{ duration: 0.4 }} // Animation duration
-                className="p-10 pl-0 h-full overflow-auto w-11/24"
+                className="h-full overflow-auto w-11/24 bg-green"
             >
-                <Row gutter={[0, 10]}>
+                <div className="sticky top-0 z-10 bg-zinc-100 pt-10 pr-10 pb-4">
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md h-12 flex items-center justify-center">
+                            <div style={{ lineHeight: '1' }}>
+                                <PlusOutlined className="text-xl text-gray-600" />
+                            </div>
+                        </Card>
+                    </Col>
+                </div>
+                <Row gutter={[0, 10]} className="pr-10 pb-10">
+                    <Col span={24}>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div>
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <LockFilled/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>     
                         </Card>
                     </Col>
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div> 
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <GlobalOutlined/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>
                         </Card>
                     </Col>
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div> 
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <GlobalOutlined/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>
                         </Card>
                     </Col>
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div> 
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <GlobalOutlined/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>     
                         </Card>
                     </Col>
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div>
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <LockFilled/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>     
                         </Card>
                     </Col>
                     <Col span={24}>
-                        <Card title="hello" className="shadow-md">
-                            <p>Card content</p>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div>
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <LockFilled/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>     
+                        </Card>
+                    </Col>
+                    <Col span={24}>
+                        <Card className="shadow-md">
+                            <div className="grid grid-cols-2 grid-rows-2 items-center">
+                                <div className="flex gap-5">
+                                    <h1 className="font-bold text-lg">Set Title</h1>
+                                    <div className="flex gap-2">
+                                        <EditOutlined className="text-gray-400 text-lg"/>
+                                        <DeleteOutlined className="text-gray-400 text-lg"/>
+                                    </div> 
+                                </div>
+                                <RightOutlined className="justify-self-end text-xl row-span-2 p-2 text-gray-600"/>
+                                <div className="flex gap-2 text-gray-500">
+                                    <GlobalOutlined/>
+                                    <p className="font-semibold">20 Terms</p>
+                                </div>  
+                            </div>
                         </Card>
                     </Col>
                 </Row>
