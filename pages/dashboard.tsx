@@ -78,7 +78,7 @@ export default function Dashboard() {
                 transition={{ duration: 0.4 }} // Animation duration
                 className="grid place-content-center w-13/24">
                 <Image 
-                    src={`/strawberry_icecream.png`}
+                    src={`/CueScoop/strawberry_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
