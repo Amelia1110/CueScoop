@@ -1,5 +1,6 @@
 import CardList from "@/components/ToDeleteCardList";
-import { CalendarOutlined, DeleteOutlined, EditOutlined, GlobalOutlined, LockFilled, LogoutOutlined, PlusOutlined, QuestionOutlined, RightOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import TrackCalendar from "@/components/TrackCalendar";
+import { CalendarOutlined, CaretLeftOutlined, CaretRightOutlined, DeleteOutlined, EditOutlined, GlobalOutlined, LeftCircleOutlined, LeftOutlined, LockFilled, LogoutOutlined, PlusOutlined, QuestionOutlined, RightCircleOutlined, RightOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Card, Col, FloatButton, Row } from "antd";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Dashboard() {
     const [cardsOpen, setCardsOpen] = useState(true);
+    const [calendarOpen, setCalendarOpen] = useState(false);
 
 
     //TODO when changing to list:
@@ -30,6 +32,35 @@ export default function Dashboard() {
     console.log(cardsOpen);
    }, [cardsOpen])
 
+   // TODO: The add sign should turn into a "go back" button
+   const renderSidebarState = (calendarOpen: boolean) => {
+    if (calendarOpen) {
+        return (
+            <TrackCalendar/>
+        );
+    }
+    else {
+        return (
+            <CardList/>
+        );
+    }
+   }
+   const renderMainSidebarButton = (calendarOpen: boolean) => {
+    if (calendarOpen) {
+        return (
+            <div onClick={() => setCalendarOpen(false)} className="flex gap-3">
+                <LeftCircleOutlined className="text-gray-600 text-base"/>
+                <p className="text-base font-semibold text-gray-600">Back To Your Sets</p>
+            </div>
+        );
+    }
+    else {
+        return (
+            <PlusOutlined className="text-xl text-gray-600" />
+        );
+    }
+   }
+
     return (
         <Row className="h-screen w-screen">
             <FloatButton.Group 
@@ -47,12 +78,15 @@ export default function Dashboard() {
                 transition={{ duration: 0.4 }} // Animation duration
                 className="grid place-content-center w-13/24">
                 <Image 
-                    src={`/CueScoop/strawberry_icecream.png`}
+                    src={`/strawberry_icecream.png`}
                     width={500} 
                     height={500}
                     alt="Pink Popsicle"
                 />
-                <h1 onClick={() => setCardsOpen(!cardsOpen)} className="justify-self-center font-semibold text-2xl pt-4 text-zinc-500">Start Studying &gt;</h1>
+                <div className="flex gap-3 justify-center">
+                    <h1 onClick={() => setCardsOpen(!cardsOpen)} className="align-middle font-semibold text-2xl text-zinc-500">Start Studying</h1>
+                    <RightCircleOutlined className="text-xl text-zinc-500"/>
+                </div>
             </motion.div>
             <AnimatePresence>
             {cardsOpen && (
@@ -69,12 +103,12 @@ export default function Dashboard() {
                     <Col span={21}>
                         <Card className="shadow-md h-12 flex items-center justify-center hover:bg-zinc-200 hover:border-zinc-200">
                             <div style={{ lineHeight: '1' }}>
-                                <PlusOutlined className="text-xl text-gray-600" />
+                                {renderMainSidebarButton(calendarOpen)}
                             </div>
                         </Card>
                     </Col>
                     <Col span={3}>
-                        <Card className="shadow-md h-12 flex items-center justify-center hover:bg-zinc-200 hover:border-zinc-200">
+                        <Card onClick={() => setCalendarOpen(true)} className="shadow-md h-12 flex items-center justify-center hover:bg-zinc-200 hover:border-zinc-200">
                             <div style={{ lineHeight: '1' }}>
                                 <CalendarOutlined className="text-xl text-gray-600" />
                             </div>
@@ -82,7 +116,7 @@ export default function Dashboard() {
                     </Col>
                     </Row>
                 </div>
-                <CardList/>
+                {renderSidebarState(calendarOpen)}
             </motion.div>
             )}
         </AnimatePresence>
